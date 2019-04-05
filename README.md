@@ -2,6 +2,7 @@
 
 Portfolio website for Deborah Cawdron
 
+[![CircleCI](https://circleci.com/gh/jondeaves/debbiecawdron.svg?style=svg)](https://circleci.com/gh/jondeaves/debbiecawdron)&nbsp;
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ccc3c0ba-b5ec-47df-bf4d-5a76eb6da2ee/deploy-status)](https://app.netlify.com/sites/debbie-cawdron/deploys)
 
 ## Install
