@@ -1,4 +1,4 @@
-export interface IOwnProps {
+export interface IProps {
   description?: string;
   keywords?: string[];
   lang?: string;
@@ -15,5 +15,3 @@ export interface IQuery {
     };
   };
 }
-
-export type IProps = IOwnProps;

@@ -1,3 +1,4 @@
+const path = require('path');
 const urljoin = require('url-join');
 
 // Must come first to ensure it's loaded before site config

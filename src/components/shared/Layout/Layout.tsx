@@ -1,11 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { useFela } from 'react-fela';
+
+import { BaseTheme } from '../../../common/themes';
 
 import Header from '../Header';
 
+import styles from './Layout.styles';
 import { IProps, IQuery } from './Layout.types';
-
-import './layout.css';
 
 export const Layout: React.FunctionComponent<IProps> = ({
   children,
@@ -22,26 +24,23 @@ export const Layout: React.FunctionComponent<IProps> = ({
     `,
   );
 
-  return (
-    <React.Fragment>
-      <Header siteTitle={site.siteMetadata.title} />
+  const { css } = useFela();
 
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </React.Fragment>
+  return (
+    <BaseTheme>
+      <React.Fragment>
+        <Header siteTitle={site.siteMetadata.title} />
+
+        <div className={css(styles.wrapper)}>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </div>
+      </React.Fragment>
+    </BaseTheme>
   );
 };
 

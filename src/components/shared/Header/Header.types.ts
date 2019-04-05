@@ -1,5 +1,14 @@
-export interface IOwnProps {
+import { IStyle } from 'fela';
+
+import { IStyleThemeProp } from '../../../common/themes/ITheme';
+
+export interface IProps {
   siteTitle: string;
 }
 
-export type IProps = IOwnProps;
+export interface IStyles {
+  wrapper: IStyle;
+  inner: (props: IStyleThemeProp) => IStyle;
+  title: IStyle;
+  link: IStyle;
+}

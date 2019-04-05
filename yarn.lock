@@ -3328,6 +3328,14 @@ css-declaration-sorter@^4.0.1:
     postcss "^7.0.1"
     timsort "^0.3.0"
 
+css-in-js-utils@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/css-in-js-utils/-/css-in-js-utils-2.0.1.tgz#3b472b398787291b47cfe3e44fecfdd9e914ba99"
+  integrity sha512-PJF0SpJT+WdbVVt0AOYp9C8GnuruRlL/UFW7932nLWmFLQTaWEzTBQEx7/hn4BuV+WON75iAViSUJLiU3PKbpA==
+  dependencies:
+    hyphenate-style-name "^1.0.2"
+    isobject "^3.0.1"
+
 css-in-js-utils@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/css-in-js-utils/-/css-in-js-utils-3.0.0.tgz#4379185f5cc79f9eba39b4e795c317f253ffaa40"
@@ -4806,9 +4814,9 @@ fastparse@^1.1.1:
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
   integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
 
-"favicons-webpack-plugin@git+https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf":
+"favicons-webpack-plugin@https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf":
   version "0.0.9"
-  resolved "git+https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf"
+  resolved "https://github.com/Creatiwity/favicons-webpack-plugin.git#0872de414061baaad0a2853c77ae75bc38b8bbbf"
   dependencies:
     core-js "^2.5.7"
     favicons "^5.1.1"
@@ -4935,11 +4943,45 @@ fela-monolithic@~10.2.2:
     isobject "^3.0.1"
     string-hash "^1.1.3"
 
+fela-plugin-fallback-value@^10.2.2, fela-plugin-fallback-value@~10.2.2:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/fela-plugin-fallback-value/-/fela-plugin-fallback-value-10.2.2.tgz#e828504858e7b1c70e2b26e55785b3fcf6cf2e8a"
+  integrity sha512-ecVMZXZDRo+Am7xOoibyT9ciLjbOflGFtb3owQ3zq4Tp7FxZMh9xZoy4OKsHLoqMimKamJhOm3T+nR+sjg3Aug==
+  dependencies:
+    css-in-js-utils "^3.0.0"
+    isobject "^3.0.1"
+
+fela-plugin-friendly-pseudo-class@~10.2.2:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/fela-plugin-friendly-pseudo-class/-/fela-plugin-friendly-pseudo-class-10.2.2.tgz#e696fae7888d3e6d0bf099722a304fb40a1a6366"
+  integrity sha512-WQ0AJE4XXbUUsH+t0cVEEm/Ud8Hg83KISF//RTYPGsEVX81xqb8jTPjYRdRR3n2MXLQvxTway2MJfM1Araqb8w==
+  dependencies:
+    isobject "^3.0.1"
+
 fela-plugin-named-keys@~10.2.2:
   version "10.2.2"
   resolved "https://registry.yarnpkg.com/fela-plugin-named-keys/-/fela-plugin-named-keys-10.2.2.tgz#c627c1dde11506c818f9bed5eecbc2ffccacd25a"
   integrity sha512-TRkzObrOFzsZ+dJshj5q2Jsx65WY7vfxlazocOANfdT00hvhPexa/V94r0h8w8NXXGqttxODQQ9Ws+wTuR7PEA==
   dependencies:
+    isobject "^3.0.1"
+
+fela-plugin-prefixer@~10.2.2:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/fela-plugin-prefixer/-/fela-plugin-prefixer-10.2.2.tgz#a7dc112ceefa95465fd66e1be74c9ad17343b477"
+  integrity sha512-qWxCmY5BzNSxIIbcO+CtGAEcCdOeG5IWfH3vt4KsapR6L1IdTU0UE2jgm2usmq/ZZ/N75WUqx9vJEWkAKeHfGw==
+  dependencies:
+    css-in-js-utils "^3.0.0"
+    fast-loops "^1.0.0"
+    fela-plugin-fallback-value "^10.2.2"
+    inline-style-prefixer "^5.0.1"
+    isobject "^3.0.1"
+
+fela-plugin-unit@~10.2.2:
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/fela-plugin-unit/-/fela-plugin-unit-10.2.2.tgz#c838be29def2fb45d50c4e95418330913a495b46"
+  integrity sha512-ST9AekaFqrr2ztAxO9LbjPZqSisLI/ZPOgZbunZqlAhavG4EbCBW1m+8nrSbPCM3ZKNjt8MoKKZGljAvhze/bw==
+  dependencies:
+    css-in-js-utils "^3.0.0"
     isobject "^3.0.1"
 
 fela-tools@^10.2.2:
@@ -6802,6 +6844,13 @@ ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
   integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+
+inline-style-prefixer@^5.0.1:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-5.1.0.tgz#cb63195f9456dcda25cf59743e45c4d9815b0811"
+  integrity sha512-giteQHPMrApQOSjNSjteO5ZGSGMRf9gas14fRy2lg2buSc1nRnj6o6xuNds5cMTKrkncyrTu3gJn/yflFMVdmg==
+  dependencies:
+    css-in-js-utils "^2.0.0"
 
 inquirer@3.3.0:
   version "3.3.0"
@@ -9530,6 +9579,13 @@ pnp-webpack-plugin@^1.4.1:
   integrity sha512-S4kz+5rvWvD0w1O63eTJeXIxW4JHK0wPRMO7GmPhbZXJnTePcfrWZlni4BoglIf7pLSY18xtqo3MSnVkoAFXKg==
   dependencies:
     ts-pnp "^1.0.0"
+
+polished@~3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-3.2.0.tgz#65045e080704a6ba524fb3f32eb99d4ed2e46c91"
+  integrity sha512-uXIr2Nu5SU5khDa4JwWh8q5czi4GoJf+U1za5LN59Tk0mL/W3egZrPL0H0ADXeompCp0QhmiK9zs06gw0J5m4Q==
+  dependencies:
+    "@babel/runtime" "^7.4.2"
 
 portfinder@^1.0.9:
   version "1.0.20"
