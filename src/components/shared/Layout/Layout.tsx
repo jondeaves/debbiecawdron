@@ -18,6 +18,7 @@ export const Layout: React.FunctionComponent<IProps> = ({
         site {
           siteMetadata {
             title
+            description
           }
         }
       }
@@ -29,7 +30,10 @@ export const Layout: React.FunctionComponent<IProps> = ({
   return (
     <BaseTheme>
       <React.Fragment>
-        <Header siteTitle={site.siteMetadata.title} />
+        <Header
+          title={site.siteMetadata.title}
+          subTitle={site.siteMetadata.description}
+        />
 
         <div className={css(styles.wrapper)}>
           <main>{children}</main>

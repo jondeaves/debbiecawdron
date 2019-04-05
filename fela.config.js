@@ -9,9 +9,9 @@ const { default: unit } = require('fela-plugin-unit');
 
 const plugins = [
   namedKeys({
-    atTablet: '@media (min-width: 420px) and (max-width: 659px)',
-    atDesktop: '@media (min-width: 660px)',
-    atLargeDesktop: '@media (min-width: 840px)',
+    atMobile: '@media (max-width: 419px)',
+    atTablet: '@media (min-width: 420px) and (max-width: 619px)',
+    atDesktop: '@media (min-width: 620px)',
     atPrint: '@media print',
   }),
 

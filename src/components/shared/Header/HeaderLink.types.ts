@@ -1,22 +1,24 @@
 import { IStyle } from 'fela';
 import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme, { IStyleThemeProp } from '../../../common/themes/ITheme';
+import ITheme from '../../../common/themes/ITheme';
 
 export interface IOwnProps {
+  isPrimary?: boolean;
+  uri: string;
   title: string;
-  subTitle: string;
 }
 
 export interface IStyles {
-  container: (
-    props: IOwnProps & IStyleThemeProp,
-  ) => IStyle & {
+  primary: IStyle & {
     atDesktop: IStyle;
-    atPrint: IStyle;
   };
 
-  headings: IStyle;
+  secondary: IStyle & {
+    atDesktop: IStyle;
+  };
+
+  link: IStyle;
 }
 
 export type IProps = IOwnProps &

@@ -1,8 +1,6 @@
 import { margin, padding } from 'polished';
 
-import { IStyles } from './Layout.types';
-
-const style: IStyles = {
+const style = {
   wrapper: {
     maxWidth: 960,
 

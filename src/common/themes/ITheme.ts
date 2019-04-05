@@ -1,8 +1,6 @@
 export default interface ITheme {
   color: {
-    primary: string;
-    secondary: string;
-    additional: string;
+    border: string;
   };
 
   container: {

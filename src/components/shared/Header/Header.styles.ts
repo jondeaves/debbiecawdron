@@ -1,28 +1,30 @@
-import { margin, padding } from 'polished';
+import { border } from 'polished';
 
 import { IStyles } from './Header.types';
 
 const style: IStyles = {
-  wrapper: {
-    background: 'rebeccapurple',
+  container: ({ theme }) => ({
+    ...border('1px', 'solic', theme.color.border),
+    left: 0,
+    top: 0,
+    width: '100%',
+    zIndex: 20,
 
-    ...margin(null, null, '1.45rem', null),
-  },
+    atDesktop: {
+      height: '80px',
+      position: 'fixed',
+    },
 
-  inner: ({ theme }) => ({
-    maxWidth: theme.container.maxWidth,
-
-    ...margin(0, 'auto'),
-    ...padding('1.45rem', '1.0875rem'),
+    atPrint: {
+      display: 'none',
+    },
   }),
 
-  title: {
-    ...margin(0),
-  },
-
-  link: {
-    color: 'white',
-    textDecoration: 'none',
+  headings: {
+    display: 'block',
+    margin: 0,
+    padding: 0,
+    textAlign: 'center',
   },
 };
 

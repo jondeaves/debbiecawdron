@@ -2,9 +2,7 @@ import ITheme from './ITheme';
 
 const commonTheme: ITheme = {
   color: {
-    additional: 'lightgreen',
-    primary: 'lightblue',
-    secondary: 'orange',
+    border: '#f5f5f5',
   },
 
   container: {
