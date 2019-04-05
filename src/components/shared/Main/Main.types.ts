@@ -1,24 +1,18 @@
 import { IStyle } from 'fela';
 import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme from '../../../common/themes/ITheme';
+import ITheme, { IStyleThemeProp } from '../../../common/themes/ITheme';
 
 export interface IOwnProps {
   children: React.ReactNode;
 }
 
-export interface IQuery {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-    };
-  };
-}
-
 export interface IStyles {
-  wrapper: IStyle;
-  footer: IStyle;
+  container: (
+    props: IOwnProps & IStyleThemeProp,
+  ) => IStyle & {
+    atDesktop: IStyle;
+  };
 }
 
 export type IProps = IOwnProps &

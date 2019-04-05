@@ -1,12 +1,14 @@
-import { margin, padding } from 'polished';
+import { IStyles } from './Layout.types';
 
-const style = {
+const style: IStyles = {
   wrapper: {
-    maxWidth: 960,
-
-    ...margin(0, 'auto'),
-    ...padding(0, '1.0875rem', '1.45rem', '1.0875rem'),
+    display: 'flex',
+    flex: '1 0 auto',
+    flexDirection: 'column',
+    height: '100%',
   },
+
+  footer: {},
 };
 
 export default style;

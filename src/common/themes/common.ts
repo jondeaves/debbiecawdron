@@ -8,6 +8,10 @@ const commonTheme: ITheme = {
   container: {
     maxWidth: 960,
   },
+
+  spacing: {
+    heading: 80,
+  },
 };
 
 export default commonTheme;

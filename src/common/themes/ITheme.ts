@@ -6,6 +6,10 @@ export default interface ITheme {
   container: {
     maxWidth: number;
   };
+
+  spacing: {
+    heading: number;
+  };
 }
 
 export interface IStyleThemeProp {

@@ -1,16 +1,20 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { useFela } from 'react-fela';
+import { connect } from 'react-fela';
 
 import { BaseTheme } from '../../../common/themes';
+import ITheme from '../../../common/themes/ITheme';
 
+import Footer from '../Footer';
 import Header from '../Header';
+import Main from '../Main';
 
-import styles from './Layout.styles';
-import { IProps, IQuery } from './Layout.types';
+import LayoutStyles from './Layout.styles';
+import { IOwnProps, IProps, IQuery, IStyles } from './Layout.types';
 
 export const Layout: React.FunctionComponent<IProps> = ({
   children,
+  styles,
 }: IProps) => {
   const { site }: IQuery = useStaticQuery(
     graphql`
@@ -25,27 +29,19 @@ export const Layout: React.FunctionComponent<IProps> = ({
     `,
   );
 
-  const { css } = useFela();
-
   return (
     <BaseTheme>
-      <React.Fragment>
+      <div className={styles.wrapper}>
         <Header
           title={site.siteMetadata.title}
           subTitle={site.siteMetadata.description}
         />
 
-        <div className={css(styles.wrapper)}>
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </React.Fragment>
+        <Main>{children}</Main>
+        <Footer />
+      </div>
     </BaseTheme>
   );
 };
 
-export default Layout;
+export default connect<IOwnProps, IStyles, ITheme>(LayoutStyles)(Layout);
