@@ -10,7 +10,7 @@ import './layout.css';
 export const Layout: React.FunctionComponent<IProps> = ({
   children,
 }: IProps) => {
-  const { site } = useStaticQuery<IQuery>(
+  const { site }: IQuery = useStaticQuery(
     graphql`
       query {
         site {

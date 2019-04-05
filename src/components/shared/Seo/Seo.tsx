@@ -11,7 +11,7 @@ export const Seo: React.FunctionComponent<IProps> = ({
   meta = [],
   title,
 }: IProps) => {
-  const { site } = useStaticQuery<IQuery>(
+  const { site }: IQuery = useStaticQuery(
     graphql`
       query {
         site {

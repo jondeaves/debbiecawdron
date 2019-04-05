@@ -150,38 +150,36 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allContentfulPost } }) => {
-              return allContentfulPost.edges.map(edge => {
+            serialize: ({ query: { site, allContentfulProject } }) => {
+              return allContentfulProject.edges.map(edge => {
                 return Object.assign({}, edge.node, {
                   description: edge.node.tagLine,
-                  url: `${site.siteMetadata.siteUrl}/${edge.node.category}/${
-                    edge.node.slug
-                  }`,
-                  guid: `${site.siteMetadata.siteUrl}/${edge.node.category}/${
-                    edge.node.slug
-                  }`,
+                  url: `${site.siteMetadata.siteUrl}${
+                    config.projectPathPrefix
+                  }${edge.node.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}${
+                    config.projectPathPrefix
+                  }${edge.node.slug}`,
 
                   custom_elements: [
                     { language: 'en-GB' },
                     { author: 'hello@jondeaves.me' },
-                    { pubDate: edge.node.publishedDate },
+                    { pubDate: edge.node.date },
                   ],
                 });
               });
             },
             query: `
               {
-                allContentfulPost(
+                allContentfulProject(
                   limit: 1000,
-                  sort: { order: DESC, fields: [publishedDate] }
+                  sort: { order: DESC, fields: [date] }
                 ) {
                   edges {
                     node {
                       title
                       slug
-                      category
-                      publishedDate
-                      tags
+                      date
                     }
                   }
                 }
