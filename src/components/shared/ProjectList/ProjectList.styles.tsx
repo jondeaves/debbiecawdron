@@ -10,7 +10,7 @@ const styles: IStyles = {
   grid: {
     display: 'grid',
     gridGap: '7px',
-    marginTop: 20,
+    marginTop: '3.5rem',
 
     '@media (min-width: 640px) and (max-width: 939px)': {
       gridTemplateColumns: '295px 295px',

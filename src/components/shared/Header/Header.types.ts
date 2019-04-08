@@ -5,6 +5,7 @@ import ITheme, { IStyleThemeProp } from '../../../common/themes/ITheme';
 
 export interface IOwnProps {
   title: string;
+  isHomepage?: boolean;
   subTitle: string;
 }
 

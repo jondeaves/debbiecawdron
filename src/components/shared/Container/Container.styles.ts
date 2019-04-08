@@ -11,6 +11,7 @@ const styles = (): IStyles => ({
     marginRight: 'auto',
     maxWidth: '960px',
     padding: '0 62px',
+    textAlign: alignment,
   }),
 });
 

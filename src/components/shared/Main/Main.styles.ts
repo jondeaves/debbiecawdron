@@ -1,3 +1,5 @@
+import { margin } from 'polished';
+
 import { IStyles } from './Main.types';
 
 export default (): IStyles => ({
@@ -5,7 +7,7 @@ export default (): IStyles => ({
     flexGrow: 1,
 
     atDesktop: {
-      marginTop: theme.spacing.heading,
+      ...margin(theme.spacing.heading, null, null, null),
     },
   }),
 });

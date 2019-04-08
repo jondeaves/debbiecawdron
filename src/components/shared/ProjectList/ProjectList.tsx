@@ -11,6 +11,7 @@ import { IOwnProps, IProps, IStyles } from './ProjectList.types';
 
 export const ProjectList: React.FunctionComponent<IProps> = ({
   projects,
+  showMore,
   styles,
 }: IProps) => {
   return (
@@ -21,11 +22,17 @@ export const ProjectList: React.FunctionComponent<IProps> = ({
         ))}
       </div>
 
-      <div className={styles.showMore}>
-        <Link to="/work" label="See more of my work" />
-      </div>
+      {showMore && (
+        <div className={styles.showMore}>
+          <Link to="/work" label="See more of my work" />
+        </div>
+      )}
     </div>
   );
+};
+
+ProjectList.defaultProps = {
+  showMore: false,
 };
 
 export default connect<IOwnProps, IStyles, ITheme>(ProjectListStyles)(

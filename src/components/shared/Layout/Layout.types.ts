@@ -5,6 +5,7 @@ import ITheme from '../../../common/themes/ITheme';
 
 export interface IOwnProps {
   children: React.ReactNode;
+  isHomepage?: boolean;
 }
 
 export interface IQuery {

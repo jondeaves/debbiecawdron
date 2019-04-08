@@ -14,6 +14,7 @@ import { IOwnProps, IProps, IQuery, IStyles } from './Layout.types';
 
 export const Layout: React.FunctionComponent<IProps> = ({
   children,
+  isHomepage,
   styles,
 }: IProps) => {
   const { site }: IQuery = useStaticQuery(
@@ -33,6 +34,7 @@ export const Layout: React.FunctionComponent<IProps> = ({
     <BaseTheme>
       <div className={styles.wrapper}>
         <Header
+          isHomepage={isHomepage}
           title={site.siteMetadata.title}
           subTitle={site.siteMetadata.description}
         />
@@ -42,6 +44,10 @@ export const Layout: React.FunctionComponent<IProps> = ({
       </div>
     </BaseTheme>
   );
+};
+
+Layout.defaultProps = {
+  isHomepage: false,
 };
 
 export default connect<IOwnProps, IStyles, ITheme>(LayoutStyles)(Layout);

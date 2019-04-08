@@ -6,6 +6,7 @@ import IProject from '../../../types/IProject';
 
 export interface IOwnProps {
   projects: IProject[];
+  showMore?: boolean;
 }
 
 export interface IStyles {

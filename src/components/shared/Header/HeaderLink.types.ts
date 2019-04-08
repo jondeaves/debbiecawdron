@@ -4,6 +4,7 @@ import { FelaWithStylesProps } from 'react-fela';
 import ITheme from '../../../common/themes/ITheme';
 
 export interface IOwnProps {
+  as?: string;
   isPrimary?: boolean;
   uri: string;
   title: string;

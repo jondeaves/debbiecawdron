@@ -1,31 +1,26 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import { IProps, IQuery } from './Seo.types';
+import useMeta from '../../../hooks/useMeta';
+
+import { IProps } from './Seo.types';
 
 export const Seo: React.FunctionComponent<IProps> = ({
   description,
   keywords = [],
   lang,
   meta = [],
+  template,
   title,
 }: IProps) => {
-  const { site }: IQuery = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `,
-  );
+  const siteMetadata = useMeta();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || siteMetadata.description;
+
+  title = title ? title : `${siteMetadata.title} ${siteMetadata.description}`;
+  template = template
+    ? template
+    : `%s | ${siteMetadata.title} ${siteMetadata.description}`;
 
   return (
     <Helmet
@@ -33,7 +28,7 @@ export const Seo: React.FunctionComponent<IProps> = ({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={template}
       meta={[
         {
           content: metaDescription,
@@ -56,7 +51,7 @@ export const Seo: React.FunctionComponent<IProps> = ({
           name: 'twitter:card',
         },
         {
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
           name: 'twitter:creator',
         },
         {
