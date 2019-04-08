@@ -2,6 +2,7 @@ import ITheme from './ITheme';
 
 const commonTheme: ITheme = {
   color: {
+    background: '#ffffff',
     border: '#f5f5f5',
   },
 

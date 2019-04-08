@@ -1,5 +1,6 @@
 export default interface ITheme {
   color: {
+    background: string;
     border: string;
   };
 

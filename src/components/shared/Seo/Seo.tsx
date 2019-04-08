@@ -83,7 +83,13 @@ export const Seo: React.FunctionComponent<IProps> = ({
 
 Seo.defaultProps = {
   description: '',
-  keywords: [],
+  keywords: [
+    'architecture',
+    'student',
+    'portfolio',
+    'part one architect',
+    'part two architect',
+  ],
   lang: 'en',
   meta: [],
 };

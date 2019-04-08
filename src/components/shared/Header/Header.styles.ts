@@ -4,11 +4,13 @@ import { IStyles } from './Header.types';
 
 const style: IStyles = {
   container: ({ theme }) => ({
-    ...border('1px', 'solid', theme.color.border),
+    backgroundColor: theme.color.background,
     left: 0,
     top: 0,
     width: '100%',
     zIndex: 20,
+
+    ...border('1px', 'solid', theme.color.border),
 
     atDesktop: {
       height: theme.spacing.heading,
