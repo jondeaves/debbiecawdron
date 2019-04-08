@@ -25,7 +25,7 @@ export default (): IStyles => ({
   },
 
   contentfulWrapper: {
-    ...margin(10, 0, 15, 0),
+    ...margin(20, 0, 15, 0),
     textAlign: 'center',
   },
 
