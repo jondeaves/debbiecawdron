@@ -2,6 +2,8 @@ import { format } from 'date-fns';
 import { navigate } from 'gatsby';
 import React, { useState } from 'react';
 
+import config from '../../../config';
+
 import Card, { CardBody, CardHeader } from '../Card';
 
 import { IProps } from './ProjectCard.types';
@@ -13,7 +15,7 @@ export const ProjectCard: React.FunctionComponent<IProps> = ({
 
   const onMouseEnter = () => setHover(true);
   const onMouseLeave = () => setHover(false);
-  const onClick = () => navigate(`/work/${project.slug}`);
+  const onClick = () => navigate(`${config.projectPathPrefix}${project.slug}`);
 
   return (
     <Card

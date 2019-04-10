@@ -18,5 +18,5 @@ module.exports = {
     ? process.env.SITE_URL
     : 'https://thepetarchitect.co.uk',
 
-  projectPathPrefix: '/project/',
+  projectPathPrefix: '/work/',
 };
