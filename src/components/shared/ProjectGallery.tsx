@@ -1,25 +1,27 @@
 import Img from 'gatsby-image';
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-import ProjectGalleryStyles from './ProjectGallery.styles';
-import { IOwnProps, IProps, IStyles } from './ProjectGallery.types';
+import styles from './ProjectGallery.styles';
+import { IProps } from './ProjectGallery.types';
 
-export const ProjectGallery: React.FunctionComponent<IProps> = ({
-  gallery,
-  styles,
-}: IProps) => {
+export const ProjectGallery: React.FunctionComponent<IProps> = (
+  props: IProps,
+) => {
+  const { gallery } = props;
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.grid}>
-        <div className={styles.leftGrid}>
+    <div className={css(styles.wrapper)}>
+      <div className={css(styles.grid)}>
+        <div className={css(styles.leftGrid)}>
           <Img fluid={gallery[0].fluid} />
         </div>
 
         {gallery.length > 1 && (
-          <div className={styles.rightGrid}>
+          <div className={css(styles.rightGrid)}>
             {gallery.length > 1 && (
               <Img fluid={gallery[1].fluid} className={styles.gridImage} />
             )}
@@ -36,6 +38,4 @@ export const ProjectGallery: React.FunctionComponent<IProps> = ({
   );
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(ProjectGalleryStyles)(
-  ProjectGallery,
-);
+export default ProjectGallery;

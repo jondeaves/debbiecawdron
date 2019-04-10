@@ -2,7 +2,7 @@ import { margin } from 'polished';
 
 import { IStyles } from './Footer.types';
 
-export default (): IStyles => ({
+const styles: IStyles = {
   container: {
     marginTop: '60px',
     textAlign: 'center',
@@ -41,4 +41,6 @@ export default (): IStyles => ({
     maxWidth: '100px',
     width: '100%',
   },
-});
+};
+
+export default styles;

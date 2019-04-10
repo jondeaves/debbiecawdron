@@ -1,18 +1,20 @@
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-import MainStyles from './Main.styles';
-import { IOwnProps, IProps, IStyles } from './Main.types';
+import styles from './Main.styles';
+import { IProps } from './Main.types';
 
-export const Main: React.FunctionComponent<IProps> = ({
-  children,
-  styles,
-}: IProps) => (
-  <main role="main" className={styles.container}>
-    {children}
-  </main>
-);
+export const Main: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { children } = props;
+  const { css } = useFela<ITheme, IProps>(props);
 
-export default connect<IOwnProps, IStyles, ITheme>(MainStyles)(Main);
+  return (
+    <main role="main" className={css(styles.container)}>
+      {children}
+    </main>
+  );
+};
+
+export default Main;

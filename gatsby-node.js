@@ -6,7 +6,7 @@ const config = require('./src/config');
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const pageTemplate = path.resolve('./src/templates/post.tsx');
+  const pageTemplate = path.resolve('./src/templates/Post.tsx');
 
   const graphqlQuery = `{
       allContentfulProject(

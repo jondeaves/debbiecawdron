@@ -1,20 +1,19 @@
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-import CardHeaderStyles from './CardHeader.styles';
-import { IOwnProps, IProps, IStyles } from './CardHeader.types';
+import styles from './CardHeader.styles';
+import { IProps } from './CardHeader.types';
 
-export const CardHeader: React.FunctionComponent<IProps> = ({
-  title,
-  subTitle,
-  styles,
-}: IProps) => {
+export const CardHeader: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { title, subTitle } = props;
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
-    <div className={styles.wrapper}>
-      <h3 className={styles.mainTitle}>{title}</h3>
-      <h4 className={styles.subTitle}>{subTitle}</h4>
+    <div className={css(styles.wrapper)}>
+      <h3 className={css(styles.mainTitle)}>{title}</h3>
+      <h4 className={css(styles.subTitle)}>{subTitle}</h4>
     </div>
   );
 };
@@ -23,6 +22,4 @@ CardHeader.defaultProps = {
   visible: true,
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(CardHeaderStyles)(
-  CardHeader,
-);
+export default CardHeader;

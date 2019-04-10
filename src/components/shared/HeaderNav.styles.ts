@@ -1,6 +1,6 @@
 import { IStyles } from './HeaderNav.types';
 
-export default (): IStyles => ({
+const styles: IStyles = {
   list: {
     listStyle: 'none',
     margin: '20px 0 5px 0',
@@ -60,4 +60,6 @@ export default (): IStyles => ({
       },
     },
   },
-});
+};
+
+export default styles;

@@ -11,7 +11,7 @@ export const sharedStyle: IStyle = {
   textTransform: 'uppercase',
 };
 
-export default (): IStyles => ({
+const styles: IStyles = {
   primary: {
     ...sharedStyle,
 
@@ -47,4 +47,6 @@ export default (): IStyles => ({
     color: 'inherit',
     textDecoration: 'none',
   },
-});
+};
+
+export default styles;

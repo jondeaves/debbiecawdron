@@ -1,4 +1,4 @@
-import { IStyles } from './post.types';
+import { IStyles } from './Post.types';
 
 const styles: IStyles = {
   banner: {

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../common/themes/ITheme';
 
@@ -10,37 +10,39 @@ import Layout from '../components/shared/Layout';
 import ProjectGallery from '../components/shared/ProjectGallery';
 import SEO from '../components/shared/Seo';
 
-import PostStyles from './Post.styles';
-import { IOwnProps, IProps, IStyles } from './Post.types';
+import styles from './Post.styles';
+import { IProps } from './Post.types';
 
-export const Post: React.FunctionComponent<IProps> = ({
-  data: {
-    contentfulProject: {
-      body: {
-        childMarkdownRemark: { html },
+export const Post: React.FunctionComponent<IProps> = props => {
+  const {
+    data: {
+      contentfulProject: {
+        body: {
+          childMarkdownRemark: { html },
+        },
+        banner,
+        gallery,
+        title,
       },
-      banner,
-      gallery,
-      title,
     },
-  },
-  styles,
-}) => {
+  } = props;
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
     <Layout>
       <SEO title={title} />
 
       <Container type="section" alignment="left">
         {banner && (
-          <div className={styles.banner}>
+          <div className={css(styles.banner)}>
             <Banner image={banner} />
           </div>
         )}
 
-        <h1 className={styles.pageTitle}>{title}</h1>
+        <h1 className={css(styles.pageTitle)}>{title}</h1>
 
         <article
-          className={styles.body}
+          className={css(styles.body)}
           dangerouslySetInnerHTML={{ __html: html }}
         />
 
@@ -50,7 +52,7 @@ export const Post: React.FunctionComponent<IProps> = ({
   );
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(PostStyles)(Post);
+export default Post;
 
 export const query = graphql`
   query($slug: String!) {

@@ -1,22 +1,19 @@
 import { IStyle } from 'fela';
-import { FelaWithStylesProps } from 'react-fela';
+import { StyleProps } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-export interface IOwnProps {
+export interface IProps {
   visible?: boolean;
   text: string;
 }
 
 export interface IStyles {
   wrapper: (
-    props: IOwnProps,
+    props: StyleProps<ITheme, IProps>,
   ) => IStyle & {
     '@media (max-width: 939px)': IStyle;
   };
 
   wrapperVisible: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

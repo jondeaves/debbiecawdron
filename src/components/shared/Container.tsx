@@ -1,24 +1,20 @@
-import classnames from 'classnames';
 import React, { createElement } from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-import ContainerStyles from './Container.styles';
-import { IOwnProps, IProps, IStyles } from './Container.types';
+import styles from './Container.styles';
+import { IProps } from './Container.types';
 
-export const Container: React.FunctionComponent<IProps> = ({
-  children,
-  className,
-  type,
-  styles,
-}: IProps) => {
+export const Container: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { children, type } = props;
+  const { css } = useFela<ITheme, IProps>(props);
   const component = type || 'div';
 
   return createElement(
     component,
     {
-      className: classnames(styles.wrapper, className),
+      className: css(styles.wrapper),
     },
     children,
   );
@@ -30,4 +26,4 @@ Container.defaultProps = {
   type: 'div',
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(ContainerStyles)(Container);
+export default Container;

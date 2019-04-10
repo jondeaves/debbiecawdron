@@ -1,17 +1,17 @@
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-import CardBodyStyles from './CardBody.styles';
-import { IOwnProps, IProps, IStyles } from './CardBody.types';
+import styles from './CardBody.styles';
+import { IProps } from './CardBody.types';
 
-export const CardBody: React.FunctionComponent<IProps> = ({
-  styles,
-  text,
-}: IProps) => {
+export const CardBody: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { text } = props;
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
-    <div className={styles.wrapper}>
+    <div className={css(styles.wrapper)}>
       <p>{text}</p>
     </div>
   );
@@ -21,4 +21,4 @@ CardBody.defaultProps = {
   visible: true,
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(CardBodyStyles)(CardBody);
+export default CardBody;

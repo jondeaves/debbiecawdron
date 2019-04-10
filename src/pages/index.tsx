@@ -7,7 +7,7 @@ import Layout from '../components/shared/Layout';
 import ProjectList from '../components/shared/ProjectList';
 import SEO from '../components/shared/Seo';
 
-export const IndexPage: React.FunctionComponent<{}> = () => {
+export const IndexPage: React.FunctionComponent = () => {
   const projects = useFeaturedProjects();
 
   return (

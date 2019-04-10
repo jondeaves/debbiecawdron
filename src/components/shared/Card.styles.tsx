@@ -1,4 +1,4 @@
-import { IStyles } from './CardBase.types';
+import { IStyles } from './Card.types';
 
 const styles: IStyles = {
   wrapper: {

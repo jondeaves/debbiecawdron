@@ -5,14 +5,10 @@ import useMeta from '../../hooks/useMeta';
 
 import { IProps } from './Seo.types';
 
-export const Seo: React.FunctionComponent<IProps> = ({
-  description,
-  keywords = [],
-  lang,
-  meta = [],
-  template,
-  title,
-}: IProps) => {
+export const Seo: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { description, keywords = [], lang, meta = [] } = props;
+  let { template, title } = props;
+
   const siteMetadata = useMeta();
 
   const metaDescription = description || siteMetadata.description;

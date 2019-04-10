@@ -1,7 +1,7 @@
-import { IOwnProps, IStyles } from './CardBody.types';
+import { IStyles } from './CardBody.types';
 
 const styles: IStyles = {
-  wrapper: ({ visible }: IOwnProps) => ({
+  wrapper: ({ visible }) => ({
     color: '#4A4A4A',
     fontSize: '19px',
     opacity: visible ? 1 : 0,

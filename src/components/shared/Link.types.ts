@@ -1,9 +1,6 @@
 import { IStyle } from 'fela';
-import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme from '../../common/themes/ITheme';
-
-export interface IOwnProps {
+export interface IProps {
   /** The url the link points to */
   to: string;
 
@@ -36,6 +33,3 @@ export interface IFinalProps {
 export interface IStyles {
   externalLabel: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

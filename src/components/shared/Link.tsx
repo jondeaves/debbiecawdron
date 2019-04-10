@@ -1,11 +1,11 @@
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
-import LinkStyles from './Link.styles';
-import { IFinalProps, IOwnProps, IProps, IStyles } from './Link.types';
+import styles from './Link.styles';
+import { IFinalProps, IProps } from './Link.types';
 
 export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
   const {
@@ -15,8 +15,8 @@ export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
     isExternal,
     openInNewWindow,
     isTrusted,
-    styles,
   } = props;
+  const { css } = useFela<ITheme, IProps>(props);
 
   // Calculate what is needed in rel
   let rel = '';
@@ -34,7 +34,7 @@ export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
     tmpClassName = [className, 'external'].join(' ');
   }
 
-  const linkProps: IOwnProps & IFinalProps = {
+  const linkProps: IProps & IFinalProps = {
     className: tmpClassName,
     href: undefined,
     label,
@@ -48,7 +48,7 @@ export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
       <GatsbyLink activeClassName="active" {...linkProps}>
         {label}
         {isExternal && (
-          <span className={styles.externalLabel}> (external link)</span>
+          <span className={css(styles.externalLabel)}> (external link)</span>
         )}
       </GatsbyLink>
     );
@@ -62,7 +62,7 @@ export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
     <a {...linkProps}>
       {label}
       {isExternal && (
-        <span className={styles.externalLabel}> (external link)</span>
+        <span className={css(styles.externalLabel)}> (external link)</span>
       )}
     </a>
   );
@@ -75,4 +75,4 @@ Link.defaultProps = {
   openInNewWindow: false,
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(LinkStyles)(Link);
+export default Link;

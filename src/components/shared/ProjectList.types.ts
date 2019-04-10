@@ -1,10 +1,8 @@
 import { IStyle } from 'fela';
-import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme from '../../common/themes/ITheme';
 import IProject from '../../types/IProject';
 
-export interface IOwnProps {
+export interface IProps {
   projects: IProject[];
   showMore?: boolean;
 }
@@ -17,6 +15,3 @@ export interface IStyles {
   };
   showMore: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

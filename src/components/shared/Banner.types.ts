@@ -1,10 +1,7 @@
 import { IStyle } from 'fela';
 import { GatsbyImageProps } from 'gatsby-image';
-import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme from '../../common/themes/ITheme';
-
-export interface IOwnProps {
+export interface IProps {
   image: GatsbyImageProps;
   isHeader?: boolean;
 }
@@ -12,6 +9,3 @@ export interface IOwnProps {
 export interface IStyles {
   wrapper: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

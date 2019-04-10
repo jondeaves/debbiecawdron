@@ -1,23 +1,21 @@
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
 import HeaderLink from './HeaderLink';
 import HeaderNav from './HeaderNav';
 
-import HeaderStyles from './Header.styles';
-import { IOwnProps, IProps, IStyles } from './Header.types';
+import styles from './Header.styles';
+import { IProps } from './Header.types';
 
-export const Header: React.FunctionComponent<IProps> = ({
-  isHomepage,
-  title,
-  subTitle,
-  styles,
-}: IProps) => {
+export const Header: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { isHomepage, title, subTitle } = props;
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
-    <header role="header" className={styles.container}>
-      <div className={styles.headings}>
+    <header role="header" className={css(styles.container)}>
+      <div className={css(styles.headings)}>
         <HeaderLink
           isPrimary={true}
           uri="/"
@@ -41,4 +39,4 @@ Header.defaultProps = {
   isHomepage: false,
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(HeaderStyles)(Header);
+export default Header;

@@ -1,7 +1,5 @@
 import IProject from '../../types/IProject';
 
-export interface IOwnProps {
+export interface IProps {
   project: IProject;
 }
-
-export type IProps = IOwnProps;

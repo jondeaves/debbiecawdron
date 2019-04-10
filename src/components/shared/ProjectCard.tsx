@@ -4,15 +4,14 @@ import React, { useState } from 'react';
 
 import config from '../../config';
 
-import Card from './CardBase';
+import Card from './Card';
 import CardBody from './CardBody';
 import CardHeader from './CardHeader';
 
 import { IProps } from './ProjectCard.types';
 
-export const ProjectCard: React.FunctionComponent<IProps> = ({
-  project,
-}: IProps) => {
+export const ProjectCard: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { project } = props;
   const [hover, setHover] = useState<boolean>(false);
 
   const onMouseEnter = () => setHover(true);

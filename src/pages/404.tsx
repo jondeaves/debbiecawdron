@@ -5,7 +5,7 @@ import Layout from '../components/shared/Layout';
 import Link from '../components/shared/Link';
 import SEO from '../components/shared/Seo';
 
-export const NotFoundPage: React.FunctionComponent<{}> = () => {
+export const NotFoundPage: React.FunctionComponent = () => {
   return (
     <Layout>
       <SEO template="Not found | %s" />

@@ -1,9 +1,6 @@
 import { IStyle } from 'fela';
-import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme from '../../common/themes/ITheme';
-
-export interface IOwnProps {
+export interface IProps {
   as?: string;
   isPrimary?: boolean;
   uri: string;
@@ -21,6 +18,3 @@ export interface IStyles {
 
   link: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

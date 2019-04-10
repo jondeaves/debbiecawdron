@@ -2,7 +2,7 @@ import { margin } from 'polished';
 
 import { IStyles } from './Main.types';
 
-export const styles: IStyles = {
+const styles: IStyles = {
   container: ({ theme }) => ({
     flexGrow: 1,
 

@@ -1,9 +1,9 @@
 import { IStyle } from 'fela';
-import { FelaWithStylesProps } from 'react-fela';
+import { StyleProps } from 'react-fela';
 
-import ITheme, { IStyleThemeProp } from '../../common/themes/ITheme';
+import ITheme from '../../common/themes/ITheme';
 
-export interface IOwnProps {
+export interface IProps {
   title: string;
   isHomepage?: boolean;
   subTitle: string;
@@ -11,7 +11,7 @@ export interface IOwnProps {
 
 export interface IStyles {
   container: (
-    props: IOwnProps & IStyleThemeProp,
+    props: StyleProps<ITheme, IProps>,
   ) => IStyle & {
     atDesktop: IStyle;
     atPrint: IStyle;
@@ -19,6 +19,3 @@ export interface IStyles {
 
   headings: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

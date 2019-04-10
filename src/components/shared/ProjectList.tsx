@@ -1,29 +1,28 @@
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
 import Link from './Link';
 import ProjectCard from './ProjectCard';
 
-import ProjectListStyles from './ProjectList.styles';
-import { IOwnProps, IProps, IStyles } from './ProjectList.types';
+import styles from './ProjectList.styles';
+import { IProps } from './ProjectList.types';
 
-export const ProjectList: React.FunctionComponent<IProps> = ({
-  projects,
-  showMore,
-  styles,
-}: IProps) => {
+export const ProjectList: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { projects, showMore } = props;
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.grid}>
+    <div className={css(styles.wrapper)}>
+      <div className={css(styles.grid)}>
         {projects.map((project, idx) => (
           <ProjectCard key={idx} project={project} />
         ))}
       </div>
 
       {showMore && (
-        <div className={styles.showMore}>
+        <div className={css(styles.showMore)}>
           <Link to="/work" label="See more of my work" />
         </div>
       )}
@@ -35,6 +34,4 @@ ProjectList.defaultProps = {
   showMore: false,
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(ProjectListStyles)(
-  ProjectList,
-);
+export default ProjectList;

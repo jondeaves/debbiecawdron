@@ -1,32 +1,34 @@
 import React from 'react';
-import { connect } from 'react-fela';
+import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
 import Link from './Link';
 
-import HeaderStyles from './HeaderNav.styles';
-import { IOwnProps, IProps, IStyles } from './HeaderNav.types';
+import styles from './HeaderNav.styles';
+import { IProps } from './HeaderNav.types';
 
-export const Header: React.FunctionComponent<IProps> = ({ styles }: IProps) => {
+export const Header: React.FunctionComponent<IProps> = (props: IProps) => {
+  const { css } = useFela<ITheme, IProps>(props);
+
   return (
     <nav>
-      <ul className={styles.list}>
-        <li className={styles.listItem}>
+      <ul className={css(styles.list)}>
+        <li className={css(styles.listItem)}>
           <Link
             to="/about"
             label="About"
             isExternal={false}
-            className={styles.link}
+            className={css(styles.link)}
           />
         </li>
 
-        <li className={styles.listItem}>
+        <li className={css(styles.listItem)}>
           <Link
             to="/work"
             label="Work"
             isExternal={false}
-            className={styles.link}
+            className={css(styles.link)}
           />
         </li>
       </ul>
@@ -34,4 +36,4 @@ export const Header: React.FunctionComponent<IProps> = ({ styles }: IProps) => {
   );
 };
 
-export default connect<IOwnProps, IStyles, ITheme>(HeaderStyles as any)(Header);
+export default Header;

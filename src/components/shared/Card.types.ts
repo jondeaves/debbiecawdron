@@ -1,10 +1,7 @@
 import { IStyle } from 'fela';
 import { GatsbyImageProps } from 'gatsby-image';
-import { FelaWithStylesProps } from 'react-fela';
 
-import ITheme from '../../common/themes/ITheme';
-
-export interface IOwnProps {
+export interface IProps {
   children: React.ReactNode;
   hover: boolean;
   image: GatsbyImageProps;
@@ -25,6 +22,3 @@ export interface IStyles {
 
   overlayHover: IStyle;
 }
-
-export type IProps = IOwnProps &
-  FelaWithStylesProps<IOwnProps, IStyles, ITheme>;

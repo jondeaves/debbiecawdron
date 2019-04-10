@@ -12,7 +12,3 @@ export default interface ITheme {
     heading: number;
   };
 }
-
-export interface IStyleThemeProp {
-  theme: ITheme;
-}
