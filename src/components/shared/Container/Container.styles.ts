@@ -10,7 +10,7 @@ const styles = (): IStyles => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: '960px',
-    padding: '0 62px',
+    padding: '0 36px',
     textAlign: alignment,
   }),
 });
