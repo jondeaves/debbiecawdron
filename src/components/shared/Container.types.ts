@@ -7,6 +7,7 @@ export interface IProps {
   alignment?: 'left' | 'center' | 'right';
   children: React.ReactNode;
   className?: IStyle;
+  flex?: boolean;
   flow?: 'column' | 'row';
   type: string;
 }

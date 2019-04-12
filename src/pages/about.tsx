@@ -2,6 +2,9 @@ import React from 'react';
 
 import IExperience from '../types/IExperience';
 
+import useAboutRenderImage from '../hooks/useAboutRenderImage';
+import useAboutSectionImage from '../hooks/useAboutSectionImage';
+
 import ExperienceList from '../components/shared/ExperienceList';
 import Layout from '../components/shared/Layout';
 import Hero from '../components/shared/Hero';
@@ -90,6 +93,9 @@ export const AboutPage: React.FunctionComponent = () => {
     },
   ];
 
+  const RenderImage = useAboutRenderImage();
+  const SectionImage = useAboutSectionImage();
+
   return (
     <Layout isHomepage={true}>
       <SEO template="%s" />
@@ -98,6 +104,9 @@ export const AboutPage: React.FunctionComponent = () => {
       <Info title="About Me" info={aboutSummary} />
       <ExperienceList title="Experience" items={work} />
       <ExperienceList title="Education" items={education} />
+
+      <SectionImage />
+      <RenderImage />
     </Layout>
   );
 };

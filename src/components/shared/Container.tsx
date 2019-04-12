@@ -22,6 +22,7 @@ export const Container: React.FunctionComponent<IProps> = (props: IProps) => {
 
 Container.defaultProps = {
   alignment: 'center',
+  flex: true,
   flow: 'row',
   type: 'div',
 };
