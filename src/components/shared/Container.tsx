@@ -7,14 +7,14 @@ import styles from './Container.styles';
 import { IProps } from './Container.types';
 
 export const Container: React.FunctionComponent<IProps> = (props: IProps) => {
-  const { children, type } = props;
+  const { children, className, type } = props;
   const { css } = useFela<ITheme, IProps>(props);
   const component = type || 'div';
 
   return createElement(
     component,
     {
-      className: css(styles.wrapper),
+      className: css(styles.wrapper, className ? className : {}),
     },
     children,
   );

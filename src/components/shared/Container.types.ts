@@ -6,6 +6,7 @@ import ITheme from '../../common/themes/ITheme';
 export interface IProps {
   alignment?: 'left' | 'center' | 'right';
   children: React.ReactNode;
+  className?: IStyle;
   flow?: 'column' | 'row';
   type: string;
 }

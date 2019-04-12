@@ -2,6 +2,7 @@ import React from 'react';
 
 import Container from '../components/shared/Container';
 import Layout from '../components/shared/Layout';
+import Hero from '../components/shared/Hero';
 import SEO from '../components/shared/Seo';
 
 export const AboutPage: React.FunctionComponent = () => {
@@ -9,10 +10,7 @@ export const AboutPage: React.FunctionComponent = () => {
     <Layout isHomepage={true}>
       <SEO template="%s" />
 
-      <Container type="section" flow="column">
-        <h1>Deborah Cawdron</h1>
-        <h2>Part 1 architectural assistant</h2>
-      </Container>
+      <Hero title="Deborah Cawdron" subTitle="Part 1 architectural assistant" />
 
       <Container type="section" alignment="left" flow="column">
         <h3>About Me</h3>
