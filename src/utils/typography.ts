@@ -25,6 +25,7 @@ Wordpress2016.overrideThemeStyles = () => ({
     fontFamily: 'Helvetica, Arial, sans-serif',
     fontWeight: 700,
     lineHeight: 1,
+    textTransform: 'none',
   },
 
   blockquote: { fontSize: '20px' },

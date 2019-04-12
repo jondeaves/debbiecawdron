@@ -1,13 +1,12 @@
 import { IStyle } from 'fela';
+import IExperience from '../../types/IExperience';
 
 export interface IProps {
+  items: IExperience[];
   title: string;
-  subTitle: string;
 }
 
 export interface IStyles {
   container: IStyle;
-  divider: IStyle;
   title: IStyle;
-  subTitle: IStyle;
 }

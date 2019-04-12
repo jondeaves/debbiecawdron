@@ -3,6 +3,10 @@ import { border, margin, padding } from 'polished';
 import { IStyles } from './Hero.types';
 
 const style: IStyles = {
+  container: {
+    ...margin(null, null, 60, null),
+  },
+
   divider: {
     backgroundColor: 'transparent',
 

@@ -12,7 +12,7 @@ export const Hero: React.FunctionComponent<IProps> = (props: IProps) => {
   const { css } = useFela<ITheme, IProps>(props);
 
   return (
-    <Container type="section" flow="column">
+    <Container type="section" flow="column" className={styles.container}>
       <h1 className={css(styles.title)}>{title}</h1>
       <h2 className={css(styles.subTitle)}>{subTitle}</h2>
 
