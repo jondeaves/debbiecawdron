@@ -9,6 +9,10 @@ const styles: IStyles = {
     atDesktop: {
       ...margin(theme.spacing.heading, null, null, null),
     },
+
+    atPrint: {
+      ...margin(0, null, null, null),
+    },
   }),
 };
 
