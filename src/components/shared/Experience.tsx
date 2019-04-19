@@ -14,23 +14,30 @@ export const Experience: React.FunctionComponent<IProps> = (props: IProps) => {
 
   return (
     <article className={css(styles.container)}>
-      <header>
-        <h4 className={css(styles.title)}>
-          <strong>{title}</strong>, {location}
-        </h4>
-      </header>
+      {(title || location) && (
+        <header>
+          <h4 className={css(styles.title)}>
+            {title && <strong>{title}</strong>}
+            {location && `, ${location}`}
+          </h4>
+        </header>
+      )}
 
-      {subTitles.map((subTitle, idx) => (
-        <h5 key={idx} className={css(styles.subTitle)}>
-          {subTitle}
-        </h5>
-      ))}
+      {subTitles &&
+        subTitles.map((subTitle, idx) => (
+          <h5 key={idx} className={css(styles.subTitle)}>
+            {subTitle}
+          </h5>
+        ))}
 
-      {descriptions.map((description, idx) => (
-        <p key={idx} className={css(styles.description)}>
-          {description}
-        </p>
-      ))}
+      {descriptions &&
+        descriptions.map((description, idx) => (
+          <p
+            key={idx}
+            className={css(styles.description)}
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        ))}
     </article>
   );
 };
