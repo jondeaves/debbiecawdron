@@ -9,7 +9,6 @@ import { IFinalProps, IProps } from './Link.types';
 
 export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
   const {
-    children,
     to,
     label,
     className,
@@ -47,7 +46,6 @@ export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
   if (!isExternal) {
     return (
       <GatsbyLink activeClassName="active" {...linkProps}>
-        {children}
         {label}
         {isExternal && (
           <span className={css(styles.externalLabel)}> (external link)</span>
@@ -62,7 +60,6 @@ export const Link: React.FunctionComponent<IProps> = (props: IProps) => {
 
   return (
     <a {...linkProps}>
-      {children}
       {label}
       {isExternal && (
         <span className={css(styles.externalLabel)}> (external link)</span>

@@ -2,8 +2,7 @@ import { IStyle } from 'fela';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
-
-import Container from '../components/shared/Container';
+import { useFela } from 'react-fela';
 
 export const useAboutSectionImage: React.FunctionComponent = () => {
   const containerStyles: IStyle & { atContainer: IStyle } = {
@@ -13,6 +12,8 @@ export const useAboutSectionImage: React.FunctionComponent = () => {
       display: 'block',
     },
   };
+
+  const { css } = useFela();
 
   const {
     image,
@@ -31,9 +32,9 @@ export const useAboutSectionImage: React.FunctionComponent = () => {
   );
 
   return (
-    <Container type="section" flex={false} className={containerStyles}>
+    <div className={css(containerStyles)}>
       <Img fluid={image.childImageSharp.fluid} />
-    </Container>
+    </div>
   );
 };
 

@@ -11,7 +11,6 @@ const styles: IStyles = {
     ...(flex
       ? {
           display: 'flex',
-          flex: '0 0 885px',
           flexDirection: flow ? flow : 'row',
           flexWrap: 'wrap',
           justifyContent: alignment,

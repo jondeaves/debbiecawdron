@@ -1,9 +1,6 @@
 import { IStyle } from 'fela';
 
 export interface IProps {
-  /** Anything to be rendered before the link itself */
-  children: React.ReactNode;
-
   /** The url the link points to */
   to: string;
 

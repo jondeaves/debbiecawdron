@@ -5,11 +5,14 @@ import IExperience from '../types/IExperience';
 import useAboutRenderImage from '../hooks/useAboutRenderImage';
 import useAboutSectionImage from '../hooks/useAboutSectionImage';
 
+import Column from '../components/shared/Column';
 import Contact from '../components/shared/Contact';
 import ExperienceList from '../components/shared/ExperienceList';
+import Grid from '../components/shared/Grid';
 import Hero from '../components/shared/Hero';
 import Info from '../components/shared/Info';
 import Layout from '../components/shared/Layout';
+import Row from '../components/shared/Row';
 import SEO from '../components/shared/Seo';
 
 export const AboutPage: React.FunctionComponent = () => {
@@ -154,7 +157,7 @@ export const AboutPage: React.FunctionComponent = () => {
     },
     {
       descriptions: [
-        'kills acquired - Attention to quality, Presentation, sales, communicating.',
+        'Skills acquired - Attention to quality, Presentation, sales, communicating.',
       ],
       location: 'Deli Assistant',
       subTitles: ['OCT 2010 - DEC 2012'],
@@ -170,20 +173,25 @@ export const AboutPage: React.FunctionComponent = () => {
       <SEO template="%s" />
 
       <Hero title="Deborah Cawdron" subTitle="Part 1 architectural assistant" />
-      <Contact title="Contact" />
 
-      {/* Left Content */}
-      <Info title="About Me" info={aboutSummary} />
-      <ExperienceList title="Experience" items={work} />
-      <ExperienceList title="Education" items={education} />
-      <SectionImage />
+      <Grid>
+        <Row>
+          <Column width="66.666%" spaced={true}>
+            <Contact title="Contact" smallScreen={true} />
+            <Info title="About Me" info={aboutSummary} />
+            <ExperienceList title="Experience" items={work} />
+            <ExperienceList title="Education" items={education} />
+            <SectionImage />
+          </Column>
+          <Column width="33.333%">
+            <Contact title="Contact" />
+            <ExperienceList title="Skills" items={skills} />
+            <ExperienceList title="Additional Information" items={additional} />
+            <ExperienceList title="Work History" items={employment} />
+          </Column>
+        </Row>
+      </Grid>
 
-      {/* Right Content */}
-      <ExperienceList title="Skills" items={skills} />
-      <ExperienceList title="Additional Information" items={additional} />
-      <ExperienceList title="Work History" items={employment} />
-
-      {/* Bottom Content */}
       <RenderImage />
     </Layout>
   );
