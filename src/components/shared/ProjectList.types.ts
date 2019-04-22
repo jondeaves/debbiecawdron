@@ -1,4 +1,7 @@
 import { IStyle } from 'fela';
+import { StyleProps } from 'react-fela';
+
+import ITheme from '../../common/themes/ITheme';
 
 import IProject from '../../types/IProject';
 
@@ -9,9 +12,6 @@ export interface IProps {
 
 export interface IStyles {
   wrapper: IStyle;
-  grid: IStyle & {
-    '@media (min-width: 640px) and (max-width: 939px)': IStyle;
-    '@media (min-width: 940px)': IStyle;
-  };
+  grid: (props: StyleProps<ITheme, IProps>) => IStyle;
   showMore: IStyle;
 }

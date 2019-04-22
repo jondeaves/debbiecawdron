@@ -29,7 +29,7 @@ const style: IStyles = {
     fontSize: 12,
     textTransform: 'uppercase',
 
-    ...margin(0, 0, 30, 0),
+    ...margin(0, 0, 18, 0),
     ...padding(0, 0, 0, 0),
 
     atContainer: {

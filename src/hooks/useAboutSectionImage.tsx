@@ -10,6 +10,7 @@ export const useAboutSectionImage: React.FunctionComponent = () => {
 
     atContainer: {
       display: 'block',
+      marginTop: 0,
     },
   };
 

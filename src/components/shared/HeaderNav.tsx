@@ -12,7 +12,7 @@ export const Header: React.FunctionComponent<IProps> = (props: IProps) => {
   const { css } = useFela<ITheme, IProps>(props);
 
   return (
-    <nav>
+    <nav className={css(styles.wrapper)}>
       <ul className={css(styles.list)}>
         <li className={css(styles.listItem)}>
           <Link
@@ -22,7 +22,6 @@ export const Header: React.FunctionComponent<IProps> = (props: IProps) => {
             className={css(styles.link)}
           />
         </li>
-
         <li className={css(styles.listItem)}>
           <Link
             to="/work"

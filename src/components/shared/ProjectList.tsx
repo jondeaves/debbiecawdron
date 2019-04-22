@@ -3,6 +3,7 @@ import { useFela } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
 
+import Container from './Container';
 import Link from './Link';
 import ProjectCard from './ProjectCard';
 
@@ -14,7 +15,7 @@ export const ProjectList: React.FunctionComponent<IProps> = (props: IProps) => {
   const { css } = useFela<ITheme, IProps>(props);
 
   return (
-    <div className={css(styles.wrapper)}>
+    <Container type="section" className={styles.wrapper}>
       <div className={css(styles.grid)}>
         {projects.map((project, idx) => (
           <ProjectCard key={idx} project={project} />
@@ -26,7 +27,7 @@ export const ProjectList: React.FunctionComponent<IProps> = (props: IProps) => {
           <Link to="/work" label="See more of my work" />
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

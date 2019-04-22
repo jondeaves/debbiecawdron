@@ -1,12 +1,14 @@
+import { margin } from 'polished';
+
 import { IStyles } from './Container.types';
 
 const styles: IStyles = {
   wrapper: ({ alignment, flex, flow }) => ({
-    marginLeft: 'auto',
-    marginRight: 'auto',
     maxWidth: '960px',
     padding: '0 36px',
     textAlign: alignment,
+
+    ...margin(0, 'auto'),
 
     ...(flex
       ? {

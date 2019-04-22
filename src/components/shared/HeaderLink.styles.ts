@@ -19,7 +19,7 @@ const styles: IStyles = {
     top: '24px',
 
     atDesktop: {
-      left: '36px',
+      left: 0,
       position: 'absolute',
       textAlign: 'left',
       top: '24px',
@@ -35,7 +35,7 @@ const styles: IStyles = {
     top: '28px',
 
     atDesktop: {
-      left: '36px',
+      left: 0,
       position: 'absolute',
       textAlign: 'left',
       top: '46px',

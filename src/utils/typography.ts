@@ -39,7 +39,7 @@ Wordpress2016.overrideThemeStyles = () => ({
   h4: { fontSize: '18px' },
 
   'a, a:hover, a:active, a:visited': {
-    borderBottom: '1px solid #ff0000',
+    borderBottom: '1px solid #333333',
     boxShadow: 'none',
     color: 'inherit',
     letterSpacing: '0.1em',

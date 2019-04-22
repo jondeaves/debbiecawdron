@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFela } from 'react-fela';
 // tslint:disable-next-line:no-submodule-imports
-import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaLink, FaLinkedin } from 'react-icons/fa';
 
 import ITheme from '../../common/themes/ITheme';
 
@@ -34,6 +34,18 @@ export const Contact: React.FunctionComponent<IProps> = (props: IProps) => {
         <Link
           to="https://www.linkedin.com/in/deborah-cawdron/"
           label="www.linkedin.com/in/deborah-cawdron/"
+          isExternal={true}
+          isTrusted={true}
+          openInNewWindow={true}
+          className={css(styles.link)}
+        />
+      </div>
+
+      <div className={css(styles.linkBlock)}>
+        <FaLink size="1.8em" className={css(styles.icon)} />
+        <Link
+          to="https://thepetarchitect.co.uk"
+          label="https://thepetarchitect.co.uk"
           isExternal={true}
           isTrusted={true}
           openInNewWindow={true}

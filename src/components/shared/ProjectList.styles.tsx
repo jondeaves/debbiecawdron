@@ -7,10 +7,10 @@ const styles: IStyles = {
     flexDirection: 'column',
   },
 
-  grid: {
+  grid: ({ showMore }) => ({
     display: 'grid',
     gridGap: '7px',
-    marginTop: '3.5rem',
+    ...(showMore ? { marginTop: '1.5rem' } : { marginTop: '3.5rem' }),
 
     '@media (min-width: 640px) and (max-width: 939px)': {
       gridTemplateColumns: '295px 295px',
@@ -19,7 +19,7 @@ const styles: IStyles = {
     '@media (min-width: 940px)': {
       gridTemplateColumns: '315px 315px 315px',
     },
-  },
+  }),
 
   showMore: {
     marginTop: 20,

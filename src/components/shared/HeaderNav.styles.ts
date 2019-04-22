@@ -1,17 +1,19 @@
 import { IStyles } from './HeaderNav.types';
 
 const styles: IStyles = {
+  wrapper: {
+    position: 'relative',
+  },
+
   list: {
     listStyle: 'none',
-    margin: '20px 0 5px 0',
+    margin: '25px 0 5px 0',
     padding: 0,
     textAlign: 'center',
 
     atDesktop: {
-      lineHeight: '68px',
       position: 'absolute',
-      right: '20px',
-      top: '-12px',
+      right: 0,
     },
   },
 
@@ -24,7 +26,10 @@ const styles: IStyles = {
     fontWeight: 'bold',
     textAlign: 'center',
     textTransform: 'uppercase',
-    width: '90px',
+
+    ':last-child': {
+      marginLeft: 10,
+    },
 
     ':hover': {
       color: '#333333',
@@ -33,7 +38,10 @@ const styles: IStyles = {
     atDesktop: {
       fontSize: '14px',
       height: '80px',
-      width: '90px',
+
+      ':last-child': {
+        marginLeft: 20,
+      },
     },
   },
 
@@ -44,18 +52,27 @@ const styles: IStyles = {
     textDecoration: 'none',
 
     ':hover': {
-      borderBottomColor: '#ff0000',
+      borderBottomColor: '#333333',
+    },
+
+    ':active': {
+      borderBottomColor: '#333333',
     },
 
     '&.active': {
-      borderBottomColor: '#ff0000',
+      borderBottomColor: '#333333',
     },
 
     atDesktop: {
       borderBottomWidth: '3px',
 
       ':hover': {
-        borderBottomColor: '#ff0000',
+        borderBottomColor: '#333333',
+        borderBottomWidth: '3px',
+      },
+
+      ':active': {
+        borderBottomColor: '#333333',
         borderBottomWidth: '3px',
       },
     },

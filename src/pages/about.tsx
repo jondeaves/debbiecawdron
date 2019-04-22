@@ -110,6 +110,7 @@ export const AboutPage: React.FunctionComponent = () => {
         'Adobe Illustrator',
         'Adobe Publisher',
         'Microsoft Office',
+        'Microsoft Office',
       ],
       title: 'Conceptual',
     },
@@ -169,7 +170,7 @@ export const AboutPage: React.FunctionComponent = () => {
   const SectionImage = useAboutSectionImage();
 
   return (
-    <Layout isHomepage={true}>
+    <Layout isHomepage={false}>
       <SEO template="%s" />
 
       <Hero title="Deborah Cawdron" subTitle="Part 1 architectural assistant" />

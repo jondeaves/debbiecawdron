@@ -2,10 +2,10 @@ import React from 'react';
 
 import useFeaturedProjects from '../hooks/useFeaturedProjects';
 
-import Container from '../components/shared/Container';
 import Layout from '../components/shared/Layout';
 import ProjectList from '../components/shared/ProjectList';
 import SEO from '../components/shared/Seo';
+import Summary from '../components/shared/Summary';
 
 export const IndexPage: React.FunctionComponent = () => {
   const projects = useFeaturedProjects();
@@ -14,9 +14,8 @@ export const IndexPage: React.FunctionComponent = () => {
     <Layout isHomepage={true}>
       <SEO template="%s" />
 
-      <Container type="section">
-        <ProjectList projects={projects} showMore={true} />
-      </Container>
+      <Summary />
+      <ProjectList projects={projects} showMore={true} />
     </Layout>
   );
 };

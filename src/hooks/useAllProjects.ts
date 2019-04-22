@@ -10,7 +10,6 @@ export default (): IProject[] => {
     graphql`
       query {
         allContentfulProject(
-          filter: { featured: { eq: false } }
           sort: { fields: [date], order: DESC }
           limit: 1000
         ) {

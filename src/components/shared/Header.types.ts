@@ -10,12 +10,9 @@ export interface IProps {
 }
 
 export interface IStyles {
-  container: (
-    props: StyleProps<ITheme, IProps>,
-  ) => IStyle & {
-    atDesktop: IStyle;
-    atPrint: IStyle;
-  };
+  container: (props: StyleProps<ITheme, IProps>) => IStyle;
+
+  inner: IStyle;
 
   headings: IStyle;
 }

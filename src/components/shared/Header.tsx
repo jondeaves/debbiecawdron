@@ -15,22 +15,24 @@ export const Header: React.FunctionComponent<IProps> = (props: IProps) => {
 
   return (
     <header role="header" className={css(styles.container)}>
-      <div className={css(styles.headings)}>
-        <HeaderLink
-          isPrimary={true}
-          uri="/"
-          title={title}
-          as={`h${isHomepage ? 1 : 2}`}
-        />
-        <HeaderLink
-          isPrimary={false}
-          uri="/"
-          title={subTitle}
-          as={`h${isHomepage ? 2 : 3}`}
-        />
-      </div>
+      <div className={css(styles.inner)}>
+        <div className={css(styles.headings)}>
+          <HeaderLink
+            isPrimary={true}
+            uri="/"
+            title={title}
+            as={`h${isHomepage ? 1 : 2}`}
+          />
+          <HeaderLink
+            isPrimary={false}
+            uri="/"
+            title={subTitle}
+            as={`h${isHomepage ? 2 : 3}`}
+          />
+        </div>
 
-      <HeaderNav />
+        <HeaderNav />
+      </div>
     </header>
   );
 };
