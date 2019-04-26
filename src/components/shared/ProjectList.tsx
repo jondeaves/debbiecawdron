@@ -15,7 +15,7 @@ export const ProjectList: React.FunctionComponent<IProps> = (props: IProps) => {
   const { css } = useFela<ITheme, IProps>(props);
 
   return (
-    <Container type="section" className={styles.wrapper}>
+    <Container type="section" className={styles.wrapper} flex={false}>
       <div className={css(styles.grid)}>
         {projects.map((project, idx) => (
           <ProjectCard key={idx} project={project} />

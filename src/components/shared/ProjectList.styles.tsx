@@ -1,3 +1,5 @@
+import { margin } from 'polished';
+
 import { IStyles } from './ProjectList.types';
 
 const styles: IStyles = {
@@ -10,14 +12,17 @@ const styles: IStyles = {
   grid: ({ showMore }) => ({
     display: 'grid',
     gridGap: '7px',
-    ...(showMore ? { marginTop: '1.5rem' } : { marginTop: '3.5rem' }),
 
-    '@media (min-width: 640px) and (max-width: 939px)': {
-      gridTemplateColumns: '295px 295px',
+    gridTemplateColumns: 'auto',
+
+    ...margin(showMore ? '1.5rem' : '3.5rem', 0, 0, 0),
+
+    atDesktop: {
+      gridTemplateColumns: 'auto auto',
     },
 
-    '@media (min-width: 940px)': {
-      gridTemplateColumns: '315px 315px 315px',
+    atContainer: {
+      gridTemplateColumns: 'auto auto auto',
     },
   }),
 

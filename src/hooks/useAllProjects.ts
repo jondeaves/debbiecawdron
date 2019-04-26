@@ -20,12 +20,8 @@ export default (): IProject[] => {
               date
               excerpt
               previewImage {
-                fixed(width: 315, height: 315) {
-                  aspectRatio
-                  src
-                  srcSet
-                  width
-                  height
+                fluid(maxWidth: 315, maxHeight: 315) {
+                  ...GatsbyContentfulFluid_withWebp
                 }
               }
             }
