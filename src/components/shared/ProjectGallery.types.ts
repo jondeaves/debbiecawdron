@@ -7,12 +7,9 @@ export interface IProps {
 
 export interface IStyles {
   wrapper: IStyle;
-  grid: IStyle;
-  leftGrid: IStyle & {
-    '@media (min-width: 1100px)': IStyle;
+  grid: IStyle & {
+    atDesktop: IStyle;
   };
-  rightGrid: IStyle & {
-    '@media (min-width: 1100px)': IStyle;
-  };
-  gridImage: IStyle;
+  leftGrid: IStyle;
+  rightGrid: IStyle;
 }

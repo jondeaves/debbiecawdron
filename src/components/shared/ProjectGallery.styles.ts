@@ -7,30 +7,20 @@ const styles: IStyles = {
   },
 
   grid: {
-    position: 'relative',
+    atDesktop: {
+      display: 'grid',
+
+      gridTemplateAreas: `"left right"`,
+      gridTemplateColumns: '66.366% 33.633%',
+    },
   },
 
   leftGrid: {
-    '@media (min-width: 1100px)': {
-      maxWidth: '636px',
-    },
+    gridArea: 'left',
   },
 
   rightGrid: {
-    marginTop: '5px',
-
-    '@media (min-width: 1100px)': {
-      display: 'block',
-      marginTop: 0,
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      width: '319px',
-    },
-  },
-
-  gridImage: {
-    marginBottom: '5px',
+    gridArea: 'right',
   },
 };
 

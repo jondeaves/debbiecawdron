@@ -11,7 +11,6 @@ export interface IProps {
 }
 
 export interface IStyles {
-  wrapper: IStyle;
   grid: (props: StyleProps<ITheme, IProps>) => IStyle;
   showMore: IStyle;
 }

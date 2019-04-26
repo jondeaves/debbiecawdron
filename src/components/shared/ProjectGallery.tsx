@@ -22,15 +22,9 @@ export const ProjectGallery: React.FunctionComponent<IProps> = (
 
         {gallery.length > 1 && (
           <div className={css(styles.rightGrid)}>
-            {gallery.length > 1 && (
-              <Img fluid={gallery[1].fluid} className={styles.gridImage} />
-            )}
-            {gallery.length > 2 && (
-              <Img fluid={gallery[2].fluid} className={styles.gridImage} />
-            )}
-            {gallery.length > 3 && (
-              <Img fluid={gallery[3].fluid} className={styles.gridImage} />
-            )}
+            {gallery.length > 1 && <Img fluid={gallery[1].fluid} />}
+            {gallery.length > 2 && <Img fluid={gallery[2].fluid} />}
+            {gallery.length > 3 && <Img fluid={gallery[3].fluid} />}
           </div>
         )}
       </div>

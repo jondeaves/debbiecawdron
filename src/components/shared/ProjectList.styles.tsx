@@ -3,16 +3,9 @@ import { margin } from 'polished';
 import { IStyles } from './ProjectList.types';
 
 const styles: IStyles = {
-  wrapper: {
-    display: 'flex',
-    flex: '0 0 1',
-    flexDirection: 'column',
-  },
-
   grid: ({ showMore }) => ({
     display: 'grid',
     gridGap: '7px',
-
     gridTemplateColumns: 'auto',
 
     ...margin(showMore ? '1.5rem' : '3.5rem', 0, 0, 0),
