@@ -9,6 +9,7 @@ Wordpress2016.overrideThemeStyles = () => ({
     fontSizeAdjust: '0.5',
     letterSpacing: '0.1rem',
     lineHeight: '26px',
+    minHeight: '100%',
   },
 
   'html img,body img': {
@@ -16,10 +17,15 @@ Wordpress2016.overrideThemeStyles = () => ({
     maxWidth: '100%',
   },
 
+  'html, body, #___gatsby, #___gatsby > div': {
+    height: '100%',
+  },
+
   'h1, h2, h3, h4, h5, h6, blockquote': {
     fontFamily: 'Helvetica, Arial, sans-serif',
     fontWeight: 700,
     lineHeight: 1,
+    textTransform: 'none',
   },
 
   blockquote: { fontSize: '20px' },
@@ -33,7 +39,7 @@ Wordpress2016.overrideThemeStyles = () => ({
   h4: { fontSize: '18px' },
 
   'a, a:hover, a:active, a:visited': {
-    borderBottom: '1px solid #ff0000',
+    borderBottom: '1px solid #333333',
     boxShadow: 'none',
     color: 'inherit',
     letterSpacing: '0.1em',

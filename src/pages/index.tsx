@@ -1,15 +1,23 @@
 import React from 'react';
 
-import Layout from '../components/shared/Layout';
-import SEO from '../components/shared/Seo';
+import useFeaturedProjects from '../hooks/useFeaturedProjects';
 
-export const IndexPage: React.FunctionComponent<{}> = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-  </Layout>
-);
+import Layout from '../components/shared/Layout';
+import ProjectList from '../components/shared/ProjectList';
+import SEO from '../components/shared/Seo';
+import Summary from '../components/shared/Summary';
+
+export const IndexPage: React.FunctionComponent = () => {
+  const projects = useFeaturedProjects();
+
+  return (
+    <Layout isHomepage={true}>
+      <SEO template="%s" />
+
+      <Summary />
+      <ProjectList projects={projects} showMore={true} />
+    </Layout>
+  );
+};
 
 export default IndexPage;

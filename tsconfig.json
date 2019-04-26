@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
+    "baseUrl": "src",
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
@@ -14,7 +13,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "allowJs": true
   },
   "include": ["./src/**/*"]
 }
