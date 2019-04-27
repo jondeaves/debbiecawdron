@@ -2,10 +2,10 @@ import { IStyle } from 'fela';
 import { StyleProps } from 'react-fela';
 
 import ITheme from '../../common/themes/ITheme';
-import IProject from '../../types/IProject';
+import IProjectCard from '../../types/IProjectCard';
 
 export interface IProps {
-  project: IProject;
+  project: IProjectCard;
 }
 
 export interface IStyleProps extends IProps {

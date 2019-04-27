@@ -17,14 +17,20 @@ export const ProjectGallery: React.FunctionComponent<IProps> = (
     <div className={css(styles.wrapper)}>
       <div className={css(styles.grid)}>
         <div className={css(styles.leftGrid)}>
-          <Img fluid={gallery[0].fluid} />
+          <Img fluid={gallery[0].childImageSharp.fluid} />
         </div>
 
         {gallery.length > 1 && (
           <div className={css(styles.rightGrid)}>
-            {gallery.length > 1 && <Img fluid={gallery[1].fluid} />}
-            {gallery.length > 2 && <Img fluid={gallery[2].fluid} />}
-            {gallery.length > 3 && <Img fluid={gallery[3].fluid} />}
+            {gallery.length > 1 && (
+              <Img fluid={gallery[1].childImageSharp.fluid} />
+            )}
+            {gallery.length > 2 && (
+              <Img fluid={gallery[2].childImageSharp.fluid} />
+            )}
+            {gallery.length > 3 && (
+              <Img fluid={gallery[3].childImageSharp.fluid} />
+            )}
           </div>
         )}
       </div>

@@ -32,10 +32,10 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify-cms',
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        path: `${__dirname}/src/projects`,
+        name: 'markdown-pages',
       },
     },
     {
@@ -46,26 +46,26 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/projects/images/uploads`,
+        name: 'uploads',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-relative-images',
+            options: {
+              name: 'uploads', // Must match the source name ^
+            },
+          },
+          {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1170,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-embed-youtube',
-            options: {
-              width: 800,
-              height: 400,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
           {
@@ -155,33 +155,35 @@ module.exports = {
             serialize: ({ query: { site, allContentfulProject } }) => {
               return allContentfulProject.edges.map(edge => {
                 return Object.assign({}, edge.node, {
-                  description: edge.node.tagLine,
+                  description: edge.node.frontmatter.tagLine,
                   url: `${site.siteMetadata.siteUrl}${
                     config.projectPathPrefix
-                  }${edge.node.slug}`,
+                  }${edge.node.frontmatter.slug}`,
                   guid: `${site.siteMetadata.siteUrl}${
                     config.projectPathPrefix
-                  }${edge.node.slug}`,
+                  }${edge.node.frontmatter.slug}`,
 
                   custom_elements: [
                     { language: 'en-GB' },
                     { author: 'hello@jondeaves.me' },
-                    { pubDate: edge.node.date },
+                    { pubDate: edge.node.frontmatter.date },
                   ],
                 });
               });
             },
             query: `
               {
-                allContentfulProject(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [date] }
+                allMarkdownRemark(
+                  sort: { fields: [frontmatter___date], order: DESC }
+                  limit: 1000
                 ) {
                   edges {
                     node {
-                      title
-                      slug
-                      date
+                      frontmatter {
+                        title
+                        slug
+                        date
+                      }
                     }
                   }
                 }

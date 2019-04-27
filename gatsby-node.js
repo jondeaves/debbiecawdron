@@ -1,6 +1,8 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
 const path = require('path');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+
 const config = require('./src/config');
 
 exports.createPages = ({ graphql, actions }) => {
@@ -9,22 +11,14 @@ exports.createPages = ({ graphql, actions }) => {
   const pageTemplate = path.resolve('./src/templates/Post.tsx');
 
   const graphqlQuery = `{
-      allContentfulProject(
-        sort: { fields: [date], order: DESC },
-        limit: 1000
-      ) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1000
+    ) {
         edges {
           node {
-            id
-            title
-            slug
-            previewImage {
-              id
-              file {
-                url
-                fileName
-                contentType
-              }
+            frontmatter {
+              slug
             }
           }
         }
@@ -39,25 +33,29 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        if (result.data.allContentfulProject === null) {
+        if (result.data.allMarkdownRemark === null) {
           console.info(`No projects to load`);
           return;
         }
 
         // Create projects pages.
-        const projects = result.data.allContentfulProject.edges;
+        const projects = result.data.allMarkdownRemark.edges.filter(
+          ({ node: project }) =>
+          project.frontmatter.slug && project.frontmatter.slug.length > 0,
+        );
 
-        _.each(projects, (project, index) => {
+        _.each(projects, ({ node: { frontmatter: { slug }} }, index) => {
           const previous =
             index === projects.length - 1 ? {} : projects[index + 1].node;
           const next = index === 0 ? {} : projects[index - 1].node;
 
+          console.log(slug);
           createPage({
-            path: `${config.projectPathPrefix}${project.node.slug}`,
+            path: `${config.projectPathPrefix}${slug}`,
             component: pageTemplate,
             context: {
-              fullPath: `${config.projectPathPrefix}${project.node.slug}`,
-              slug: project.node.slug,
+              fullPath: `${config.projectPathPrefix}${slug}`,
+              slug,
               previous,
               next,
             },
@@ -66,4 +64,8 @@ exports.createPages = ({ graphql, actions }) => {
       }),
     );
   });
+};
+
+exports.onCreateNode = ({ node }) => {
+  fmImagesToRelative(node);
 };

@@ -16,13 +16,10 @@ import { IProps } from './Post.types';
 export const Post: React.FunctionComponent<IProps> = props => {
   const {
     data: {
-      contentfulProject: {
-        body: {
-          childMarkdownRemark: { html },
-        },
-        banner,
-        gallery,
-        title,
+      markdownRemark: {
+        html,
+
+        frontmatter: { title, banner, gallery },
       },
     },
   } = props;
@@ -35,7 +32,7 @@ export const Post: React.FunctionComponent<IProps> = props => {
       <Container type="section" alignment="left">
         {banner && (
           <div className={css(styles.banner)}>
-            <Banner image={banner} />
+            <Banner image={banner.childImageSharp} />
           </div>
         )}
 
@@ -56,23 +53,24 @@ export default Post;
 
 export const query = graphql`
   query($slug: String!) {
-    contentfulProject(slug: { eq: $slug }) {
-      id
-      body {
-        childMarkdownRemark {
-          html
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        slug
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 960) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
-      }
-      title
-      slug
-      banner {
-        fluid(maxWidth: 960) {
-          ...GatsbyContentfulFluid
-        }
-      }
-      gallery {
-        fluid(maxWidth: 960) {
-          ...GatsbyContentfulFluid
+        gallery {
+          childImageSharp {
+            fluid(maxWidth: 960) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
       }
     }

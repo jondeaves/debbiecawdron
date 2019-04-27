@@ -1,16 +1,16 @@
 ---
 title: Test Project
-path: test-project
+slug: test-project
 date: 2019-04-26T22:23:27.341Z
-banner: /images/uploads/banner.png
-previewImage: /images/uploads/preview.png
+banner: ./images/uploads/banner.png
+previewImage: ./images/uploads/preview.png
 excerpt: Short stuff baby tonight
 featured: true
 gallery:
-  - /images/uploads/1.png
-  - /images/uploads/2.png
-  - /images/uploads/3.png
-  - /images/uploads/4.png
+  - ./images/uploads/1.png
+  - ./images/uploads/2.png
+  - ./images/uploads/3.png
+  - ./images/uploads/4.png
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere lectus eget sapien sodales faucibus. Maecenas scelerisque augue quis fringilla ullamcorper. Nullam auctor est vel arcu blandit tincidunt. Quisque venenatis nisi sit amet scelerisque porta. Mauris eu magna fermentum, convallis magna ac, blandit massa. Maecenas suscipit metus non lectus vulputate venenatis. Curabitur eget lectus non nisl volutpat congue. Proin porttitor sollicitudin diam mattis consequat. Ut pulvinar tristique leo at ultrices. Maecenas purus erat, venenatis accumsan dictum eu, placerat id lorem. Vivamus elementum quam a pellentesque luctus. Ut augue arcu, molestie eu luctus placerat, ornare eu nisl. In tincidunt vel enim a pulvinar. Cras dignissim lorem id imperdiet rutrum. Aenean vitae nisl augue.
 

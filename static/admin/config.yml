@@ -27,7 +27,7 @@ collections:
         }
       - {
           label: 'Slug',
-          name: 'path',
+          name: 'slug',
           widget: 'string',
           hint: 'Unique url to access this content',
         }

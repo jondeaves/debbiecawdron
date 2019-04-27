@@ -1,9 +1,18 @@
 import { IStyle } from 'fela';
 
-import IProject from '../types/IProject';
+import IImageSharpType from '../types/IImageSharpType';
 
 export interface QueryData {
-  contentfulProject: IProject;
+  markdownRemark: {
+    html: string;
+
+    frontmatter: {
+      title: string;
+      slug: string;
+      banner: IImageSharpType;
+      gallery: IImageSharpType[];
+    };
+  };
 }
 
 export interface IProps {

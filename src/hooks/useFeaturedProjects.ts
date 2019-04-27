@@ -1,28 +1,33 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-import IContentfulProjects from '../types/IContentfulProjects';
-import IProject from '../types/IProject';
+import IMarkdownProjects from '../types/IMarkdownProjects';
+import IProjectCard from '../types/IProjectCard';
 
-export default (): IProject[] => {
+export default (): IProjectCard[] => {
   const {
-    allContentfulProject: { edges: projects },
-  }: { allContentfulProject: IContentfulProjects } = useStaticQuery(
+    allMarkdownRemark: { edges: projects },
+  }: { allMarkdownRemark: IMarkdownProjects } = useStaticQuery(
     graphql`
       query {
-        allContentfulProject(
-          filter: { featured: { eq: true } }
-          sort: { fields: [date], order: DESC }
+        allMarkdownRemark(
+          filter: { frontmatter: { featured: { eq: true } } }
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: 6
         ) {
           edges {
             node {
-              title
-              slug
-              date
-              excerpt
-              previewImage {
-                fluid(maxWidth: 315, maxHeight: 315) {
-                  ...GatsbyContentfulFluid_withWebp
+              html
+              frontmatter {
+                title
+                slug
+                date
+                excerpt
+                previewImage {
+                  childImageSharp {
+                    fluid(maxWidth: 200) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
                 }
               }
             }
@@ -32,7 +37,14 @@ export default (): IProject[] => {
     `,
   );
 
-  return projects.map(project => ({
-    ...project.node,
-  }));
+  return projects
+    .filter(({ node: project }) => project.frontmatter.title.length > 0)
+    .map(({ node: project }) => ({
+      date: project.frontmatter.date,
+      excerpt: project.frontmatter.excerpt,
+      html: project.html,
+      previewImage: project.frontmatter.previewImage.childImageSharp,
+      slug: project.frontmatter.slug,
+      title: project.frontmatter.title,
+    }));
 };

@@ -1,11 +1,13 @@
-import { margin } from 'polished';
+import { margin, padding } from 'polished';
 
 import { IStyles } from './Footer.types';
 
 const styles: IStyles = {
   container: {
-    marginTop: '60px',
     textAlign: 'center',
+
+    ...margin(60, 0, 0, 0),
+    ...padding(0, 0, 20, 0),
 
     atPrint: {
       display: 'none',
@@ -22,24 +24,6 @@ const styles: IStyles = {
     color: '#A8A8A8',
     fontSize: '14px',
     ...margin(0),
-  },
-
-  contentfulWrapper: {
-    ...margin(20, 0, 15, 0),
-    textAlign: 'center',
-  },
-
-  contentfulLink: {
-    '&:hover': {
-      borderBottom: 0,
-    },
-
-    borderBottom: 0,
-  },
-
-  contentfulImage: {
-    maxWidth: '100px',
-    width: '100%',
   },
 };
 

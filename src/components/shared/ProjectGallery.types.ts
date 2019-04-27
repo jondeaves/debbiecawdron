@@ -1,8 +1,9 @@
 import { IStyle } from 'fela';
-import { GatsbyImageProps } from 'gatsby-image';
+
+import IImageSharpType from '../../types/IImageSharpType';
 
 export interface IProps {
-  gallery: GatsbyImageProps[];
+  gallery: IImageSharpType[];
 }
 
 export interface IStyles {

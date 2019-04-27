@@ -10,12 +10,4 @@ export interface IStyles {
 
   title: IStyle;
   subTitle: IStyle;
-
-  contentfulWrapper: IStyle;
-
-  contentfulLink: IStyle & {
-    '&:hover': IStyle;
-  };
-
-  contentfulImage: IStyle;
 }
