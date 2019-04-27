@@ -41,15 +41,14 @@ exports.createPages = ({ graphql, actions }) => {
         // Create projects pages.
         const projects = result.data.allMarkdownRemark.edges.filter(
           ({ node: project }) =>
-          project.frontmatter.slug && project.frontmatter.slug.length > 0,
+            project.frontmatter.slug && project.frontmatter.slug.length > 0,
         );
 
-        _.each(projects, ({ node: { frontmatter: { slug }} }, index) => {
+        _.each(projects, ({ node: { frontmatter: { slug } } }, index) => {
           const previous =
             index === projects.length - 1 ? {} : projects[index + 1].node;
           const next = index === 0 ? {} : projects[index - 1].node;
 
-          console.log(slug);
           createPage({
             path: `${config.projectPathPrefix}${slug}`,
             component: pageTemplate,

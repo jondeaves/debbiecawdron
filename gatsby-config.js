@@ -152,8 +152,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allContentfulProject } }) => {
-              return allContentfulProject.edges.map(edge => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node, {
                   description: edge.node.frontmatter.tagLine,
                   url: `${site.siteMetadata.siteUrl}${
