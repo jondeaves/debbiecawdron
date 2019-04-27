@@ -155,6 +155,7 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node, {
+                  title: edge.node.frontmatter.title,
                   description: edge.node.frontmatter.tagLine,
                   url: `${site.siteMetadata.siteUrl}${
                     config.projectPathPrefix
@@ -165,7 +166,7 @@ module.exports = {
 
                   custom_elements: [
                     { language: 'en-GB' },
-                    { author: 'hello@jondeaves.me' },
+                    { author: 'Debbie Cawdron' },
                     { pubDate: edge.node.frontmatter.date },
                   ],
                 });
