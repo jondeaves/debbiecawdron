@@ -5,11 +5,11 @@ backend:
 # Adds an interface for drafting, reviewing, and approving posts
 publish_mode: editorial_workflow
 
-# Media files will be stored in the repo under static/images/uploads
+# Media files will be stored in the repo under
 media_folder: 'src/projects/images/uploads'
 
-# The src attribute for uploaded media will begin with /images/uploads
-public_folder: '/projects/images/uploads/'
+# The src attribute for uploaded media will begin with
+public_folder: './images/uploads/'
 
 # Collections define the structure for the different content types
 collections:
