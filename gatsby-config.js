@@ -30,7 +30,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-manifest',
     'gatsby-plugin-offline',
-    'gatsby-plugin-netlify-cms',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
