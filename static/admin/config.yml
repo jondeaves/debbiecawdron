@@ -6,10 +6,10 @@ backend:
 publish_mode: editorial_workflow
 
 # Media files will be stored in the repo under static/images/uploads
-media_folder: 'static/images/uploads'
+media_folder: 'src/projects/images/uploads'
 
 # The src attribute for uploaded media will begin with /images/uploads
-public_folder: '/images/uploads'
+public_folder: '/projects/images/uploads/'
 
 # Collections define the structure for the different content types
 collections:
