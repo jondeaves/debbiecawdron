@@ -9,10 +9,14 @@ import ProjectCard from './ProjectCard';
 
 import styles from './ProjectList.styles';
 import { IProps } from './ProjectList.types';
+import useFeaturedProjects from '../../hooks/useFeaturedProjects';
 
 export const ProjectList: React.FunctionComponent<IProps> = (props: IProps) => {
   const { projects, showMore } = props;
   const { css } = useFela<ITheme, IProps>(props);
+
+  const projects2 = useFeaturedProjects();
+  console.log(projects2);
 
   return (
     <Container type="section" flex={false}>
